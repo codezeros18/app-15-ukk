@@ -19,7 +19,7 @@
   <section>
     <div class="container-fluid mt-4">
         <div class="row">
-            <form action="{{ route('buku.create') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="container">
                     <div class="row">

@@ -34,13 +34,19 @@ class BukuController extends Controller
             'penulis' => 'required',
             'penerbit' => 'required',
             'tahun_terbit' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image:jpeg,jpg,png',
             'sinopsis' => 'required',
             'stok' => 'required',
+            'id_kategori' => 'required',
         ]);
 
-        Buku::create($buku);
-        return redirect()->route('buku.create');
+        $image = $request ->file('gambar');
+        $namaGambar= $request -> judul . '.' . $image ->extension();
+        $image-> move(public_path('img/buku'), $namaGambar);
+        $buku['gambar'] =$namaGambar;
+
+        buku::create($buku);
+        return redirect()->route('buku.dashboard');
     }
 
     /**
