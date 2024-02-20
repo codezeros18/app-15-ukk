@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfileController;
@@ -22,6 +23,9 @@ Route::get('/', function () {
     return view('pages\landing');
 });
 
+
+
+
 Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,24 +36,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth','role:admin,'])->group(function () {
-    Route::prefix('admin')->group(function(){
-        Route::get('/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');
-    });
+Route::middleware(['auth','role:admin'])->group(function () {
+        Route::get('/admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');
 });
 
 Route::middleware(['auth','role:petugas'])->group(function () {
-    Route::prefix('petugas')->group(function(){
-        Route::get('/dashboard',[PetugasController::class,'PetugasDashboard'])->name('petugas.dashboard');
-    });
+        Route::get('/petugas/dashboard',[PetugasController::class,'PetugasDashboard'])->name('petugas.dashboard');
 });
 
 
-Route::middleware(['auth','role:admin,petugas'])->group(function () {
-    Route::prefix('dashboard')->group(function(){
+Route::middleware(['auth','role:admin'])->group(function () {
         Route::resource('buku',BukuController::class);
-    });  
+        Route::get('/buku/edit/{id}', [BukuController::class, 'edit']);
+
+        // Route::get('/buku/create',[BukuController::class,'create']);
 }); 
+
+// Route::middleware(['auth','role:admin'])->group(function () {
+//     Route::resource('kategori',KategoriController::class);
+// }); 
 
 // Route::middleware(['auth','role:admin,petugas'])->group(function () {
 //     Route::prefix('dashboard')->group(function(){
@@ -103,17 +108,14 @@ Route::get('/cart', function () {
 });
 
 //Buku
-Route::get('/buku/dashboard', function () {
-    return view('buku\dashboard');
-});
+// Route::get('/buku/dashboard', function () {
+//     return view('buku\dashboard');
+// });
 
-Route::get('/buku/create', function () {
-    return view('buku\create');
-});
+// Route::get('/buku/create', function () {
+//     return view('buku\create');
+// });
 
-Route::get('/buku/edit', function () {
-    return view('buku\edit');
-});
 
 Route::get('/buku/kategori', function () {
     return view('buku\kategori');

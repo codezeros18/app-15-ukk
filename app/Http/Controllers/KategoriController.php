@@ -12,7 +12,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return view('kategori.dashboard')->with([
+            // 'buku' => $buku
+        ]);
     }
 
     /**

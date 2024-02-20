@@ -19,7 +19,7 @@
       <section>
         <div class="container-fluid mt-4">
             <div class="row">
-                <form action="" method="POST">
+                <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="container">
                         <div class="row">
@@ -52,13 +52,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Win 95+</td>
-                    <td>
-                        <button type="submit" class="btn btn-dark">Hapus</button>
-                    </td>
-                  </tr>
+                    {{-- @foreach ($buku as $item)
+                    <tr>
+                      <td>1</td>
+                      <td>Win 95+</td>
+                      <td>
+                          <button type="submit" class="btn btn-dark">Hapus</button>
+                      </td>
+                    </tr> 
+                    @endforeach --}}
+                  
                   </tbody>
                 </table>
               </div>

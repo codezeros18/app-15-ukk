@@ -40,16 +40,24 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Trident</td>
-                    <td>Sword</td>
-                    <td>Win 95+</td>
-                    <td>
-                        <a href="{{ url('buku/edit') }}" class="btn btn-dark">Edit</a>
-                        <button type="submit" class="btn btn-dark">Hapus</button>
-                    </td>
-                  </tr>
+                    @foreach ($buku as $item)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td><img width="100" height="100" src="{{ asset('img/buku/' . $item ->gambar) }}" alt=""></td>
+                      <td>{{ $item->judul }}</td>
+                      <td>{{ $item->kategori->kategori }}</td>
+                      <td>
+                          <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-dark">Edit</a>
+                          <form action="{{ route('buku.destroy', $item->id)}}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-dark">Hapus</button>
+                          </form> 
+                          
+                      </td>
+                    </tr>
+                    @endforeach
+                  
                   </tbody>
                 </table>
               </div>

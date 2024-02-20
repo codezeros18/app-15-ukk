@@ -19,8 +19,9 @@
     <section>
         <div class="container-fluid mt-4">
             <div class="row">
-                <form action="" method="POST">
+                <form action="{{ route('buku.update', $buku->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
@@ -32,24 +33,24 @@
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Judul</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="judul"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('judul',$buku->judul) }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Penulis</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="penulis"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('penulis',$buku->penulis) }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Penerbit</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="penerbit"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('penerbit',$buku->penerbit) }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Tahun Terbit</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="tahun_terbit"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('tahun_terbit',$buku->tahun_terbit) }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="kategori">Kategori</label>
@@ -63,12 +64,12 @@
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Sinopsis</label>
                                     <input type="textarea" class="form-control" id="exampleInputEmail1" name="sinopsis"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('sinopsis',$buku->sinopsis) }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Stok</label>
                                     <input type="number" class="form-control" id="exampleInputEmail1" name="stok"
-                                        aria-describedby="emailHelp" value="">
+                                        aria-describedby="emailHelp" value="{{ old('stok',$buku->stok) }}">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-dark">Update</button>

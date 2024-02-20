@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('buku/dashboard') }}" class="nav-link">
+                    <a href="{{ url('/buku') }}" class="nav-link">
                     <i class="nav-icon fas fa-book"></i>
                     <p>
                         Buku
@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('buku/kategori') }}" class="nav-link">
+                    <a href="{{ url('/kategori') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
                         Kategori

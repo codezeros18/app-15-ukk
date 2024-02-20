@@ -55,9 +55,9 @@
                                 <label for="kategori">Kategori</label>
                                 <select name="id_kategori" id="kategori" class="form-control">
                                     <option disabled selected>Kategori</option>
-                                    {{-- @foreach ($kategori as $item)
+                                    @foreach ($kategori as $item)
                                         <option value="{{ $item->id }}">{{ $item->kategori }}</option>
-                                    @endforeach --}}
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="mb-3">

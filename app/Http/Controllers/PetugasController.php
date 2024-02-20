@@ -10,9 +10,9 @@ class PetugasController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function PetugasDashboard()
     {
-        //
+        return view('petugas.dashboard');
     }
 
     /**
