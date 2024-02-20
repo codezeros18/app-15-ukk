@@ -20,7 +20,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('admin/dashboard') }}" class="nav-link">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="nav-icon fas fa-clock"></i>
                     <p>
                         Dashboard
@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('profile/dashboard') }}" class="nav-link">
+                    <a href="{{ url('/profile') }}" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
                         Profil
@@ -70,8 +70,7 @@
                 <li class="nav-item">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
-                    
+                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>             
                 </form>
                 </li>
         </ul>
@@ -82,7 +81,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('admin/dashboard') }}" class="nav-link">
+                    <a href="{{ route('petugas.dashboard')}}" class="nav-link">
                     <i class="nav-icon fas fa-clock"></i>
                     <p>
                         Dashboard
@@ -90,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('buku/dashboard') }}" class="nav-link">
+                    <a href="{{ url('/buku') }}" class="nav-link">
                     <i class="nav-icon fas fa-book"></i>
                     <p>
                         Buku
@@ -98,7 +97,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('buku/kategori') }}" class="nav-link">
+                    <a href="{{ url('/kategori') }}" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
                         Kategori
@@ -124,7 +123,7 @@
                 <li class="nav-item">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
+                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
                     
                 </form>
                 </li>

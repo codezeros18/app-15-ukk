@@ -8,12 +8,6 @@
           <div class="col-sm-6">
             <h1>Data Buku</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ url('buku/dashboard') }}">Data Buku</a></li>
-              <li class="breadcrumb-item active">Data Buku</li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -47,12 +41,16 @@
                       <td>{{ $item->judul }}</td>
                       <td>{{ $item->kategori->kategori }}</td>
                       <td>
-                          <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-dark">Edit</a>
+                        <div class="d-flex">
+                          <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-dark me-2">Edit</a>
+                          <a href="{{ route('buku.show', $item->id) }}" class="btn btn-dark me-2">Detail</a>
                           <form action="{{ route('buku.destroy', $item->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-dark">Hapus</button>
                           </form> 
+                        </div>
+                          
                           
                       </td>
                     </tr>

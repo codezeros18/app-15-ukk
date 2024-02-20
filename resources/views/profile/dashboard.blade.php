@@ -30,7 +30,7 @@
                     <div class="icon">
                       <i class="ion ion-person"></i>
                     </div>
-                    <a href="{{ url('profile/akun') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('/profile') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
                 <!-- ./col -->

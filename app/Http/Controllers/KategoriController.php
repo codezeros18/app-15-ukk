@@ -12,8 +12,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
+        $kategori = kategori::latest()->paginate(5);
         return view('kategori.dashboard')->with([
-            // 'buku' => $buku
+            'kategori' => $kategori
         ]);
     }
 
@@ -22,7 +23,11 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = kategori::orderBy('kategori')
+            ->get();
+        return view('kategori.create')->with([
+            'kategori' => $kategori,
+        ]);
     }
 
     /**
@@ -30,7 +35,12 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = $request->validate([
+            'kategori' => 'required',
+        ]);
+
+        kategori::create($kategori);
+        return redirect()->route('kategori.index');
     }
 
     /**
@@ -60,8 +70,9 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kategori $kategori)
+    public function destroy($id)
     {
-        //
+        kategori::destroy($id);
+        return redirect()->route('kategori.index');
     }
 }

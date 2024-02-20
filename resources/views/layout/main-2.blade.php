@@ -8,7 +8,7 @@
     @include('part.link')
   </head>
   <body style="height: 100%">
-    <section class="vh-100" style="background-image:url('img/background.jpg');background-size:cover;" >
+    <section class="vh-100" style="background-color:#333333" >
         @include('layout.navbar-2')
         @yield('content')
     </section>

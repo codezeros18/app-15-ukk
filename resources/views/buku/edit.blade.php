@@ -7,12 +7,6 @@
             <div class="col-sm-6">
               <h1>Edit Buku</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('buku/dashboard') }}">Data Buku</a></li>
-                <li class="breadcrumb-item active">Edit</li>
-              </ol>
-            </div>
           </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -56,9 +50,9 @@
                                     <label for="kategori">Kategori</label>
                                     <select name="id_kategori" id="kategori" class="form-control">
                                         <option disabled selected>Kategori</option>
-                                        {{-- @foreach ($kategori as $item)
+                                        @foreach ($kategori as $item)
                                             <option value="{{ $item->id }}">{{ $item->kategori }}</option>
-                                        @endforeach --}}
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">

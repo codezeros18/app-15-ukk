@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\File;
 use App\Models\buku;
 use App\Models\kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class BukuController extends Controller
@@ -63,9 +65,16 @@ class BukuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(buku $buku)
+    public function show(string $id):View
     {
-        //
+        $buku = buku::findOrFail($id);
+        return view('buku.detail',compact('buku'));
+    }
+
+    public function detail(string $id):View
+    {
+        $buku = buku::findOrFail($id);
+        return view('buku.detail',compact('buku'));
     }
 
     /**
@@ -79,24 +88,25 @@ class BukuController extends Controller
         // return view('buku.dashboard')->with([
         //     'buku' => $buku
         // ]);
-        // $kategori = kategori::orderBy('kategori')
-        //     ->get();
-        // return view('buku.edit')->with([
-        //     'kategori' => $kategori
-        // ]);
+        $kategori = kategori::orderBy('kategori')
+             ->get();
+        
         // dd("est");
         // dd("test");
-        $buku = buku::with('kategori');
-        $buku = buku::findOrFail($id);
-        return view('buku.edit',compact('buku'));
+        $buku = buku::with('kategori')
+        -> findOrFail($id);
+        return view('buku.edit')->with([
+            'kategori' => $kategori,
+            'buku' => $buku,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {
-        dd($request);
+    {   
+        // dd($request);
         $buku = $request->validate([
             'judul' => 'required',
             'penulis' => 'required',
@@ -113,13 +123,14 @@ class BukuController extends Controller
 
             $image = $request ->file('gambar');
             $namaGambar= $request -> judul . '.' . $image ->extension();
-
-            $image-> delete(public_path('img/buku'), $namaGambar);
+            
+            Storage::delete(public_path('img/buku'.$buku->gambar));
+            $image-> move(public_path('img/buku'), $namaGambar);
             $buku['gambar'] =$namaGambar;
 
         }
         $buku->update([
-            'gambar' => $image->hashName(),
+            'gambar' => $namaGambar,
             'judul' => $request -> judul ,
             'penulis' => $request -> penulis,
             'penerbit' => $request -> penerbit,

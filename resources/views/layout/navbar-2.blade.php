@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="{{ url('/') }}" style="font-size:12px;font-weight:700;">HOME</a>
+            <a class="nav-link active text-white" aria-current="page" href="{{ route('peminjam.dashboard') }}" style="font-size:12px;font-weight:700;">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('/book') }}" style="font-size:12px;font-weight:700;">BOOK</a>
@@ -22,7 +22,7 @@
 
         </ul>
         <form class="d-flex" role="search">
-            <a href="{{ url('/login') }}" type="button" class="btn mx-2" style="background-color: #ffffff;font-size:12px;font-weight:700;border-radius:100px">LOG IN</a>
+              <a href="{{ url('/login') }}" type="button" class="btn mx-2" style="background-color: #ffffff;font-size:12px;font-weight:700;border-radius:100px"> Log In</a>        
         </form>
       </div>
     </div>
