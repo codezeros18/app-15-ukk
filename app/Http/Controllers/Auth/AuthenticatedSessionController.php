@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         }elseif($request->user()->role === 'petugas'){
             $url = 'petugas/dashboard';
         }elseif($request->user()->role === 'peminjam'){
-            $url = 'pages/dashboard';
+            $url = 'peminjam/dashboard';
         }
         
         return redirect()->intended($url);

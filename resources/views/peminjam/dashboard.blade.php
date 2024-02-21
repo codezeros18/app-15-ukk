@@ -1,4 +1,4 @@
-@extends('layout.main-2')
+@extends('layout.main-4')
 @section('content')
 <section>
     <div class="position-absolute top-50 start-50 translate-middle">

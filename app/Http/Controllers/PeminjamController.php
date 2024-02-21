@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\peminjam;
 use Illuminate\Http\Request;
+use App\Models\buku;
+use Illuminate\View\View;
 
 class PeminjamController extends Controller
 {
@@ -12,7 +14,21 @@ class PeminjamController extends Controller
      */
     public function PeminjamDashboard()
     {
-        return view('peminjam.dashboard');
+        return view('peminjam.dashboard')->with([
+            'title' => 'Peminjam | Dashboard'
+        ]);
+    }
+
+    public function index()
+    {
+        $buku = buku::with('kategori')
+            ->latest()
+            ->paginate(10);
+        return view('peminjam.buku')->with([
+            'buku' => $buku,
+            'title' => 'Peminjam | Dashboard',
+        ]);
+        
     }
 
     /**
@@ -34,9 +50,16 @@ class PeminjamController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(peminjam $peminjam)
+    public function show(string $id):View
     {
-        //
+        $buku = buku::findOrFail($id);
+        return view('peminjam.detail',compact('peminjam'));
+    }
+
+    public function detail(string $id):View
+    {
+        $buku = buku::findOrFail($id);
+        return view('peminjam.detail',compact('peminjam'));
     }
 
     /**

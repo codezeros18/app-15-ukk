@@ -12,9 +12,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori::latest()->paginate(5);
+        $kategori = kategori::latest()->paginate(10);
         return view('kategori.dashboard')->with([
-            'kategori' => $kategori
+            'kategori' => $kategori,
+            'title' => 'Kategori | Dashboard',
         ]);
     }
 
@@ -27,6 +28,7 @@ class KategoriController extends Controller
             ->get();
         return view('kategori.create')->with([
             'kategori' => $kategori,
+            'title' => 'Kategori | Create Kategori',
         ]);
     }
 

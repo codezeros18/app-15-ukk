@@ -19,9 +19,11 @@ class BukuController extends Controller
     {
         $buku = buku::with('kategori')
             ->latest()
-            ->paginate(5);
+            ->paginate(10);
         return view('buku.dashboard')->with([
-            'buku' => $buku
+            'buku' => $buku,
+            'title' => 'Buku | Dashboard',
+
         ]);
     }
 
@@ -33,7 +35,8 @@ class BukuController extends Controller
         $kategori = kategori::orderBy('kategori')
             ->get();
         return view('buku.create')->with([
-            'kategori' => $kategori
+            'kategori' => $kategori,
+            'title' => 'Buku | Create Buku',
         ]);
     }
 
@@ -98,6 +101,7 @@ class BukuController extends Controller
         return view('buku.edit')->with([
             'kategori' => $kategori,
             'buku' => $buku,
+            'title' => 'Buku | Edit',
         ]);
     }
 

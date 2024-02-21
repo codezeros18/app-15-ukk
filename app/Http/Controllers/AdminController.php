@@ -12,7 +12,11 @@ class AdminController extends Controller
      */
     public function AdminDashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard')->with([
+            'title' => 'Admin | Dashboard',
+        ]);
+        ;
+
     }
 
     /**

@@ -1,4 +1,4 @@
-
+<section>
 <nav class="navbar navbar-expand-lg bg-transparent">
     <div class="container-fluid my-3 mx-3">
       <h3><a class="navbar text-white" style="font-weight:800" href="#">ZERO</a></h3>
@@ -11,7 +11,7 @@
             <a class="nav-link active text-white" aria-current="page" href="{{ route('peminjam.dashboard') }}" style="font-size:12px;font-weight:700;">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('peminjam/buku') }}" style="font-size:12px;font-weight:700;">BOOK</a>
+            <a class="nav-link text-white" href="{{ url('peminjam/buku')}}" style="font-size:12px;font-weight:700;">BOOK</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ url('/blog') }}" style="font-size:12px;font-weight:700;">BLOG</a>
@@ -27,3 +27,4 @@
       </div>
     </div>
   </nav>
+</section>

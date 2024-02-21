@@ -49,6 +49,8 @@ Route::middleware(['auth','role:petugas'])->group(function () {
 
 Route::middleware(['auth','role:peminjam'])->group(function () {
     Route::get('/peminjam/dashboard',[PeminjamController::class,'PeminjamDashboard'])->name('peminjam.dashboard');
+    Route::get('/peminjam/buku',[PeminjamController::class,'index']);
+    Route::get('/peminjam/detail/{id}', [BukuController::class, 'detail']);
 });
 
 
