@@ -61,16 +61,16 @@
                     <a href="{{ url('/akun') }}" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
-                        Profil
+                        Profile
                     </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
+                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none;color:grey"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
                 </form>
-                </li>
+                </li> --}}
         </ul>
       </nav>
       @elseif (Auth::user()->role === 'petugas')
@@ -118,13 +118,13 @@
                     </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
 
                 </form>
-                </li>
+                </li> --}}
         </ul>
       </nav>
       @endif

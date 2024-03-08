@@ -16,8 +16,8 @@
     <section class="content mt-4">
       <div class="container-fluid">
         <div class="text-end">
-            <a href="{{ url('peminjaman/create') }}" class="btn btn-sm text-white mt-4 mb-4" style="border-radius: 0; background-color:#333333" type="button"><i class="bi bi-plus"></i></a>
-            <a href="{{ url('/export-peminjaman') }}" class="btn btn-sm text-white mt-4 mb-4" style="border-radius: 0; background-color:#333333">Save Data</i></a>
+            <a href="{{ url('peminjaman/create') }}" class="btn btn-sm btn-dark text-white mt-4 mb-4" style="border-radius: 100px; background-color:#333333" type="button"><i class="bi bi-clipboard-plus"></i></a>
+            <a href="{{ url('/export-peminjaman') }}" class="btn btn-sm btn-dark text-white mt-4 mb-4" style="border-radius: 100px; background-color:#333333"><i class="bi bi-download"></i></i></a>
         </div>
         <div class="row">
           <div class="col-12">
@@ -67,7 +67,7 @@
                           <form action="{{ route('peminjaman.destroy', $item->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-dark">Hapus</button>
+                          <button type="submit" class="btn btn-sm btn-dark" style="border-radius: 100px"><i class="bi bi-trash-fill"></i></button>
                           </form>
                         </div>
                       </td>

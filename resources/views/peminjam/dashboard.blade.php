@@ -5,7 +5,7 @@
         <p class="text-center text-white fw-bolder" style="font-size:2.5rem" >ZERO <span style="font-size: 16px">the</span><br>LIBRARY</p>
     </div>
     <div class="position-absolute bottom-0 end-0 p-4">
-        <button type="button" class="btn me-5 py-2 text-white" style="margin-top:1vh">Whats The Library About</button>
+        {{-- <button type="button" class="btn me-5 py-2 text-white" style="margin-top:1vh">Whats The Library About</button> --}}
         <a href="{{ url('peminjam/buku') }}" type="button" class="btn btn-outline-dark me-5 text-white" style="border-radius: 0%;margin-top:1vh">Choose Your Book</a>
     </div>
 </section>
@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
 </section>
 <section>
     <div class="align-items-center">
@@ -55,12 +55,12 @@
                                 <div class="example-2 card cardas" style="background-image:url('{{ asset('img/buku/' . $item ->gambar) }}');background-size:cover">
                                     <div class="card-body">
                                         <div class="wrapper">
+                                            <a href="{{ url('peminjam/buku') }}" class="stretched-link"></a>
                                             <div class="data">
                                                 <div class="content">
-                                                    <span class="author text-white">{{ $item->penulis }}</span>
+                                                    <span class="author text-white">{{ $item->penulis }} | {{ $item->tahun_terbit }}</span>
                                                     <h1 class="title" style="color: #ffffff;text-decoration:none" ><a href="#">{{ $item->judul }}</h1>
                                                     <p class="text text-white">{{ $item->sinopsis }}</p>
-                                                    <a href="#" class="button" style="text-decoration: none;color:#ffffff">Read More</a>
                                                 </div>
                                             </div>
                                         </div>

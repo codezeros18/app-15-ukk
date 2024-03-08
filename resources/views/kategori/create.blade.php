@@ -22,9 +22,9 @@
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Kategori</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" name="kategori"
-                                    aria-describedby="emailHelp">
+                                    aria-describedby="emailHelp" style="border-radius: 100px">
                             </div>
-                            <button type="submit" class="btn btn-dark w-100">Create</button>
+                            <button type="submit" class="btn btn-dark w-100"  style="border-radius: 100px">Create</button>
                         </div>
                   </div>
             </form>

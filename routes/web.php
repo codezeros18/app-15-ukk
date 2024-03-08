@@ -24,9 +24,7 @@ use App\Http\Controllers\PengembalianController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages\landing');
-});
+Route::get('/',[GuestController::class,'index'])->name('pages.landing');
 
 Route::get('/login', function () {
     return view('pages\login');
@@ -38,13 +36,13 @@ Route::get('/dashboard', function () {
     })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware(['auth','role:admin'])->group(function () {
+        Route::resource('akun',AkunController::class);
         Route::get('/admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');
 });
 
@@ -146,21 +144,21 @@ Route::get('/register', function () {
 
 
 //Profile
-Route::get('/profile/dashboard', function () {
-    return view('profile\dashboard');
-});
+// Route::get('/profile/dashboard', function () {
+//     return view('profile\dashboard');
+// });
 
-Route::get('/profile/akun', function () {
-    return view('profile\akun');
-});
+// Route::get('/profile/akun', function () {
+//     return view('profile\akun');
+// });
 
-Route::get('/profile/create', function () {
-    return view('profile\create');
-});
+// Route::get('/profile/create', function () {
+//     return view('profile\create');
+// });
 
-Route::get('/profile/akun', function () {
-    return view('profile\akun');
-});
+// Route::get('/profile/akun', function () {
+//     return view('profile\akun');
+// });
 
 // //Dashboard Setiap Role
 // Route::get('/admin/dashboard', function () {

@@ -25,7 +25,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="user">Akun User</label>
-                                <select name="id_user" id="user" class="form-control">
+                                <select name="id_user" id="user" class="form-control" style="border-radius: 100px" >
                                     <option disabled selected>Pilih User</option>
                                     @foreach ($user as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -36,7 +36,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Pilih Buku</label>
-                                <select name="id_buku" id="buku" class="form-control">
+                                <select name="id_buku" id="buku" class="form-control" style="border-radius: 100px">
                                     <option disabled selected>Buku</option>
                                     @foreach ($buku as $item)
                                         <option value="{{ $item->id }}">{{ $item->judul }}</option>
@@ -46,11 +46,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah Pinjam</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" name="jumlah_pinjam"
+                            <input type="number" class="form-control" style="border-radius: 100px" id="exampleInputEmail1" name="jumlah_pinjam"
                                 aria-describedby="emailHelp">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark w-100">Create</button>
+                    <button type="submit" class="btn btn-dark w-100" style="border-radius: 100px">Create</button>
             </form>
         </div>
     </div>

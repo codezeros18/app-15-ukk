@@ -23,7 +23,7 @@
                 <div class="col-md-2">
                     <div class="row">
                         <div class="col">
-                            <a href="{{ route('buku.edit', $buku->id) }}" class="btn btn-dark me-2 w-100">Edit</a>
+                            <a href="{{ route('buku.edit', $buku->id) }}" class="btn btm-sm btn-dark me-2" style="border-radius: 100px"><i class="bi bi-pencil-square"></i></a>
                         </div>
                     </div>
                 </div>

@@ -15,28 +15,28 @@
             <div class="row">
                 <form action="{{ route('akun.store') }}" method="POST">
                     @csrf
-                    @method('PATCH')
+                    @method('POST')
                     <div class="container">
                         <div class="row">
                             <div class="col-md">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Name</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="name"
-                                        aria-describedby="emailHelp">
+                                        aria-describedby="emailHelp" style="border-radius: 100px">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" name="password"
-                                        aria-describedby="emailHelp">
+                                    <input type="password" class="form-control" id="exampleInputEmail1" name="password"
+                                        aria-describedby="emailHelp" style="border-radius: 100px">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" name="email"
-                                        aria-describedby="emailHelp">
+                                        aria-describedby="emailHelp" style="border-radius: 100px">
                                 </div>
                                 <div class="mb-3">
                                     <label for="role">Role</label>
-                                    <select name="role" id="role" class="form-control">
+                                    <select name="role" id="role" class="form-control" style="border-radius: 100px">
                                         <option disabled selected>Pilih Role</option>
                                         <option value="admin">Admin</option>
                                         <option value="petugas">Petugas</option>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark w-100">Create</button>
+                        <button type="submit" class="btn btn-dark w-100" style="border-radius: 100px">Create Account</button>
                 </form>
             </div>
         </div>

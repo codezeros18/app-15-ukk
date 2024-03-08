@@ -11,10 +11,10 @@
         </div><!-- /.container-fluid -->
     </section>
     <section class="content mt-4">
-        
+
       <div class="container">
         <div class="text-end">
-          <a href="{{ url('kategori/create') }}" class="btn btn-sm text-white bg-black mt-4 mb-4" style="border-radius: 0" type="button"><i class="bi bi-plus"></i></a>
+          <a href="{{ url('kategori/create') }}" class="btn btn-sm btn-dark text-white mt-4 mb-4" style="border-radius: 100px" type="button"><i class="bi bi-clipboard-plus"></i></i></a>
       </div>
         <div class="row">
           <div class="col-12">
@@ -38,12 +38,12 @@
                           <form action="{{ route('kategori.destroy', $item->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-dark">Hapus</button>
-                          </form> 
+                            <button type="submit" class="btn btn-sm btn-dark" style="border-radius: 100px"><i class="bi bi-trash-fill"></i></button>
+                          </form>
                       </td>
-                    </tr> 
+                    </tr>
                     @endforeach
-                  
+
                   </tbody>
                 </table>
               </div>

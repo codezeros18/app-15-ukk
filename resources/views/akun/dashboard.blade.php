@@ -13,7 +13,7 @@
     <section class="content mt-4">
       <div class="container-fluid">
         <div class="text-end">
-            <a href="{{ url('akun/create') }}" class="btn btn-sm text-white bg-black mt-4 mb-4" style="border-radius: 0" type="button"><i class="bi bi-plus"></i></a>
+            <a href="{{ url('akun/create') }}" class="btn btn-sm text-white btn-dark mt-4 mb-4" style="border-radius: 100px" type="button"><i class="bi bi-clipboard-plus"></i></a>
         </div>
         <div class="row">
           <div class="col-12">
@@ -39,11 +39,11 @@
                         <td>{{ $item->role}}</td>
                         <td>
                           <div class="d-flex">
-                            <a href="{{ route('akun.edit', $item->id) }}" class="btn btn-dark me-2">Edit</a>
+                            <a href="{{ route('akun.edit', $item->id) }}" class="btn btn-sm btn-dark me-2" style="border-radius: 100px"><i class="bi bi-pencil-square"></i></a>
                             <form action="{{ route('akun.destroy', $item->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-dark">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-dark" style="border-radius: 100px"><i class="bi bi-trash-fill"></i></button>
                             </form>
                           </div>
                         </td>

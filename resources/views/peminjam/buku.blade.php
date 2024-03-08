@@ -25,9 +25,10 @@
                                 <div class="example-2 card cardas" style="background-image:url('{{ asset('img/buku/' . $item ->gambar) }}');background-size:cover">
                                     <div class="card-body">
                                         <div class="wrapper">
+                                            <a href="{{ url('peminjam/buku') }}" class="stretched-link"></a>
                                             <div class="data">
                                                 <div class="content">
-                                                    <span class="author text-white">{{ $item->penulis }}</span>
+                                                    <span class="author text-white">{{ $item->penulis }} | {{ $item->tahun_terbit }}</span>
                                                     <h1 class="title" style="color: #ffffff;text-decoration:none" ><a href="#">{{ $item->judul }}</h1>
                                                     <p class="text text-white">{{ $item->sinopsis }}</p>
                                                     <a href="#" class="button" style="text-decoration: none;color:#ffffff">Read More</a>
