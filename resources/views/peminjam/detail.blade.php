@@ -18,7 +18,7 @@
         <h2 class="text-center" style="margin-top:10vh;margin-bottom:10vh">Book Details</h2>
         <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
           <div class="col d-flex flex-column align-items-start gap-2">
-            <img class="img-fluid" src="{{ asset('img/buku/' . $buku ->gambar) }}" style="height: 500px; width:400px" alt="">
+            <img class="img-fluid" src="{{ asset('img/buku/' . $buku ->gambar) }}" style="height: 550px; width:400px" alt="">
           </div>
 
           <div class="col">

@@ -51,7 +51,7 @@ class BukuController extends Controller
             'penerbit' => 'required',
             'tahun_terbit' => 'required',
             'gambar' => 'required|image:jpeg,jpg,png',
-            'sinopsis' => 'required',
+            'sinopsis' => 'required|max:1000',
             'stok' => 'required',
             'id_kategori' => 'required',
         ]);
@@ -119,7 +119,7 @@ class BukuController extends Controller
             'penerbit' => 'required',
             'tahun_terbit' => 'required',
             'gambar' => 'required|image:jpeg,jpg,png',
-            'sinopsis' => 'required',
+            'sinopsis' => 'required|max:1000',
             'stok' => 'required',
             'id_kategori' => 'required',
         ]);

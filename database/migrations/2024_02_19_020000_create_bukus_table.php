@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->string('tahun_terbit');
             $table->string('gambar');
-            $table->string('sinopsis');
+            $table->string('sinopsis',1000);
             $table->integer('stok');
             $table->timestamps();
         });

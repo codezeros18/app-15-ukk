@@ -73,13 +73,17 @@ class PeminjamController extends Controller
     public function show(string $id):View
     {
         $buku = buku::findOrFail($id);
-        return view('peminjam.detail',compact('peminjam'));
+        return view('peminjam.detail',compact('buku'))->with([
+            'title' => 'Peminjam | Detail Buku',
+        ]);
     }
 
     public function detail(string $id):View
     {
-        $buku = buku::findOrFail($id);
-        return view('peminjam.detail',compact('peminjam'));
+        $buku = Buku::findOrFail($id);
+        return view('peminjam.detail', compact('buku'))->with([
+        'title' => 'Peminjam | Detail Buku',
+    ]);
     }
 
     /**

@@ -50,7 +50,7 @@
                                 aria-describedby="emailHelp">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark w-100" style="border-radius: 100px">Create</button>
+                    <button type="submit" class="btn btn-dark w-100" style="border-radius: 100px">Pinjamkan</button>
             </form>
         </div>
     </div>

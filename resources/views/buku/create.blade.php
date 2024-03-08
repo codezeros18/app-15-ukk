@@ -66,7 +66,7 @@
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Sinopsis</label>
                                     <textarea class="form-control" id="exampleInputEmail1" name="sinopsis"
-                                        aria-describedby="emailHelp" style="border-radius:0" rows="4"></textarea>
+                                        aria-describedby="emailHelp" style="border-radius:0" rows="4" maxlength="1000"></textarea>
                                 </div>
                             </div>
                         </div>
