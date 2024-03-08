@@ -78,6 +78,8 @@ Route::middleware(['auth','role:admin,petugas'])->group(function () {
 });
 
 Route::middleware(['auth','role:admin'])->group(function () {
+        Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+        Route::put('/admin/update/{id}',[AdminController::class, 'update'])->name('admin.update');
         Route::resource('akun',AkunController::class);
         Route::get('/akun/edit/{id}', [AkunController::class, 'edit']);
 });
