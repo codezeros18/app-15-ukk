@@ -30,7 +30,7 @@
                     <th>Poto</th>
                     <th>Buku</th>
                     <th>Genre</th>
-                    <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>

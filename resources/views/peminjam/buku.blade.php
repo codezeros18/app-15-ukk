@@ -28,8 +28,7 @@
                                             <a href="{{ route('peminjam.detail', $item->id) }}" class="stretched-link"></a>
                                             <div class="data">
                                                 <div class="content">
-                                                    <span class="author text-white">{{ $item->penulis }} | {{ $item->tahun_terbit }}</span>
-                                                    <h1 class="title" style="color: #ffffff;text-decoration:none" ><a href="#">{{ $item->judul }}</h1>
+                                                    <span class="author text-white">{{ $item->judul }} | {{ $item->tahun_terbit }}</span>
                                                     <p class="text text-white">{{ $item->sinopsis }}</p>
                                                 </div>
                                             </div>

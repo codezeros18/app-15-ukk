@@ -28,7 +28,7 @@ class PeminjamController extends Controller
     {
         $buku = buku::with('kategori')
             ->latest()
-            ->paginate(100);
+            ->paginate(10);
         return view('peminjam.buku')->with([
             'buku' => $buku,
             'title' => 'Peminjam | Buku',

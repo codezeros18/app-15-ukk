@@ -26,7 +26,7 @@
                   <tr>
                     <th>#</th>
                     <th>Kategori</th>
-                    <td>Status</td>
+                    <td>Aksi</td>
                   </tr>
                   </thead>
                   <tbody>
