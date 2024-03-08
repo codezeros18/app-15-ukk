@@ -1,49 +1,40 @@
 @extends('layout.main')
 @section('content')
 <section>
-    <div class="container px-4 py-5">
-        <h2 class="text-center" style="margin-top:10vh;margin-bottom:10vh">Book Details</h2>
-        <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-          <div class="col d-flex flex-column align-items-start gap-2">
-            <img class="img-fluid" src="{{ asset('img/buku/' . $buku ->gambar) }}" style="height: 500px; width:400px" alt="">
-          </div>
+    <div class="content-wrapper">
+        <div class="container px-4 py-5">
+            <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{{ asset('img/buku/' . $buku ->gambar) }}" style="height: 280px; width:220px" alt="">
+                </div>
 
-          <div class="col">
-            <div class="row row-cols-1 row-cols-sm-2 g-4">
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Judul</h4>
-                <p class="text-body-secondary">{{ $buku->judul }}</p>
-              </div>
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Kategori</h4>
-                <p class="text-body-secondary">{{ $buku->kategori->kategori }}</p>
-              </div>
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Penulis</h4>
-                <p class="text-body-secondary">{{ $buku->penulis }}</p>
-              </div>
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Penerbit</h4>
-                <p class="text-body-secondary">{{ $buku->penerbit }}</p>
-              </div>
-
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Tahun Terbit</h4>
-                <p class="text-body-secondary">{{ $buku->tahun_terbit }}</p>
-              </div>
-              <div class="col d-flex flex-column gap-2">
-                <h4 class="fw-semibold mb-0 text-body-emphasis">Stok</h4>
-                <p class="text-body-secondary">{{ $buku->stok }}</p>
-              </div>
+                <div class="col-md-6">
+                    <div class="row row-cols-1 row-cols-sm-2 g-4">
+                        <div class="col d-flex flex-column">
+                            <h4 class="text-body-emphasis mb-4">{{ $buku->judul }}</h4>
+                            <p class="text-body-emphasis">Kategori : {{ $buku->kategori->kategori }}</p>
+                            <p class="text-body-emphasis">Penulis : {{ $buku->penulis }}</p>
+                            <p class="text-body-emphasis">Penerbit : {{ $buku->penerbit }}</p>
+                            <p class="text-body-emphasis">Tahun Terbit : {{ $buku->tahun_terbit }}</p>
+                            <p class="text-body-emphasis">Stok : {{ $buku->stok }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col">
+                            <a href="{{ route('buku.edit', $buku->id) }}" class="btn btn-dark me-2 w-100">Edit</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <hr style="width:100%; background-color:#333333;height:10px;border:1px solid #333333">
             <div class="row">
-                <div class="col d-flex flex-column g-4 gap-2">
-                    <h4 class="fw-semibold mb-0 text-body-emphasis">Sinopsis</h4>
-                    <p class="text-body-secondary">{{ $buku->sinopsis }}</p>
-                  </div>
+                <div class="col">
+                    <p class="text-body-emphasis mt-4">{{ $buku->sinopsis }}</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 </section>
 @endsection

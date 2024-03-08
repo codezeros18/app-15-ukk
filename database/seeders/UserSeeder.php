@@ -32,15 +32,15 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('111'),
                 'role' => 'petugas',
             ],
-    );  
+    );
         DB::table('users')->insert(
-        [
-            'id' => '3',
-            'name' => 'peminjam',
-            'email' => 'peminjam@gmail.com',
-            'password' => Hash::make('111'),
-            'role' => 'peminjam',
-        ],
+            [
+                'id' => '3',
+                'name' => 'peminjam',
+                'email' => 'peminjam@gmail.com',
+                'password' => Hash::make('111'),
+                'role' => 'peminjam',
+            ],
     );
     }
 }

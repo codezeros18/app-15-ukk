@@ -1,8 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <span class="brand-text font-weight-light">ZERO</span>
-    </a>
+      <span class="brand-link font-weight-light">ZERO</span>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -44,7 +42,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ url('/peminjaman') }}" class="nav-link">
                     <i class="nav-icon fas fa-handshake"></i>
                     <p>
                         Peminjaman
@@ -52,7 +50,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ url('/pengembalian') }}" class="nav-link">
                     <i class="nav-icon fas fa-hand-holding-heart"></i>
                     <p>
                         Pengembalian
@@ -60,7 +58,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/profile') }}" class="nav-link">
+                    <a href="{{ url('/akun') }}" class="nav-link">
                     <i class="nav-icon fas fa-user"></i>
                     <p>
                         Profil
@@ -70,7 +68,7 @@
                 <li class="nav-item">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>             
+                    <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
                 </form>
                 </li>
         </ul>
@@ -105,7 +103,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ url('/peminjaman') }}" class="nav-link">
                     <i class="nav-icon fas fa-handshake"></i>
                     <p>
                         Peminjaman
@@ -113,7 +111,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ url('/pengembalian') }}" class="nav-link">
                     <i class="nav-icon fas fa-hand-holding-heart"></i>
                     <p>
                         Pengembalian
@@ -124,15 +122,15 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <a href="{{ route('logout') }}"  class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();" style="text-decoration: none"><i class="nav-icon fas fa-arrow-right"></i> Logout</a>
-                    
+
                 </form>
                 </li>
         </ul>
       </nav>
       @endif
       @endauth
-      
-      
+
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

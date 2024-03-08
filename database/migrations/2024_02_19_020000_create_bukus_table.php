@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tahun_terbit');
             $table->string('gambar');
             $table->string('sinopsis');
-            $table->string('stok');
+            $table->integer('stok');
             $table->timestamps();
         });
     }

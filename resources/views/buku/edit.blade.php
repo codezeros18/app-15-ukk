@@ -61,8 +61,8 @@
                                         aria-describedby="emailHelp" value="{{ old('sinopsis',$buku->sinopsis) }}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Stok</label>
-                                    <input type="number" class="form-control" id="exampleInputEmail1" name="stok"
+                                    <label for="exampleInputEmail1" class="form-label">Stok <span class="text-muted ms-2" style="font-size: 12px">in stock / not avaible</span></label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" name="stok"
                                         aria-describedby="emailHelp" value="{{ old('stok',$buku->stok) }}">
                                 </div>
                             </div>

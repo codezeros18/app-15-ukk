@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\PeminjamanController;
-use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,7 @@ Route::get('/dashboard', function () {
     })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -48,40 +53,54 @@ Route::middleware(['auth','role:petugas'])->group(function () {
 });
 
 Route::middleware(['auth','role:peminjam'])->group(function () {
+    // Route::resource('peminjam',PeminjamController::class);
     Route::get('/peminjam/dashboard',[PeminjamController::class,'PeminjamDashboard'])->name('peminjam.dashboard');
     Route::get('/peminjam/buku',[PeminjamController::class,'index']);
+    Route::get('/peminjam/cart',[PeminjamController::class,'cart']);
     Route::get('/peminjam/detail/{id}', [BukuController::class, 'detail']);
 });
 
 
 Route::middleware(['auth','role:admin,petugas'])->group(function () {
         Route::resource('buku',BukuController::class);
+        Route::resource('peminjaman',PeminjamanController::class);
+        Route::resource('pengembalian',PengembalianController::class);
+        // Route::get('/peminjaman/export',[PeminjamanController::class,'export']);
+        // Route::get('/peminjaman/export', [PeminjamanController::class, 'export']);
+        Route::get('/export-peminjaman', [ExcelController::class, 'exportPeminjaman']);
         Route::get('/buku/edit/{id}', [BukuController::class, 'edit']);
         Route::get('/buku/detail/{id}', [BukuController::class, 'detail']);
-        
+
         // Route::get('/buku/create',[BukuController::class,'create']);
-}); 
+});
 
 Route::middleware(['auth','role:admin,petugas'])->group(function () {
         Route::resource('kategori',KategoriController::class);
-}); 
+});
+
+Route::middleware(['auth','role:admin'])->group(function () {
+        Route::resource('akun',AkunController::class);
+        Route::get('/akun/edit/{id}', [AkunController::class, 'edit']);
+});
+
+// Route::get('/pages/landing', [GuestController::class, 'index']);
 
 // Route::middleware(['auth','role:peminjam'])->group(function () {
 //         Route::resource('peminjam',PeminjamController::class);
-// }); 
+// });
 
 // Route::middleware(['auth','role:admin'])->group(function () {
 //         Route::resource('profile',ProfileController::class);
-// }); 
+// });
 
 // Route::middleware(['auth','role:admin'])->group(function () {
 //     Route::resource('kategori',KategoriController::class);
-// }); 
+// });
 
 // Route::middleware(['auth','role:admin,petugas'])->group(function () {
 //     Route::prefix('dashboard')->group(function(){
 //         Route::resource('buku',BukuController::class);
-//      });  
+//      });
 // });
 
 
@@ -115,18 +134,6 @@ Route::get('/register', function () {
     return view('pages\register');
 });
 
-Route::get('/book', function () {
-    return view('pages\book');
-});
-
-Route::get('/detail', function () {
-    return view('pages\detail');
-});
-
-Route::get('/cart', function () {
-    return view('pages\cart');
-});
-
 //Buku
 // Route::get('/buku/dashboard', function () {
 //     return view('buku\dashboard');
@@ -136,10 +143,6 @@ Route::get('/cart', function () {
 //     return view('buku\create');
 // });
 
-
-Route::get('/buku/kategori', function () {
-    return view('buku\kategori');
-});
 
 
 //Profile

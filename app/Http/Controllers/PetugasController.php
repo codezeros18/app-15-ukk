@@ -12,7 +12,9 @@ class PetugasController extends Controller
      */
     public function PetugasDashboard()
     {
-        return view('petugas.dashboard');
+        return view('petugas.dashboard')->with([
+            'title' => 'Petugas | Dashboard',
+        ]);
     }
 
     /**

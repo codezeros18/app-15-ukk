@@ -17,13 +17,20 @@
             <a class="nav-link text-white" href="{{ url('/blog') }}" style="font-size:12px;font-weight:700;">BLOG</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="{{ url('/cart') }}" style="font-size:12px;font-weight:700;">CART</a>
+            <a class="nav-link text-white" href="{{ url('peminjam/cart') }}" style="font-size:12px;font-weight:700;">CART</a>
           </li>
 
         </ul>
+        @auth
         <form class="d-flex" role="search">
-              <a href="{{ url('/login') }}" type="button" class="btn mx-2" style="background-color: #ffffff;font-size:12px;font-weight:700;border-radius:100px"> Log In</a>        
+            <a href="{{ url('/profile') }}" type="button" class="btn mx-2" style="background-color: #ffffff;font-size:12px;font-weight:700;border-radius:100px">{{ Auth::user()->name }}</a>
         </form>
+        @else
+        <form class="d-flex" role="search">
+            <a href="{{ url('/profile') }}" type="button" class="btn mx-2" style="background-color: #ffffff;font-size:12px;font-weight:700;border-radius:100px">Log In</a>
+        </form>
+        @endauth
+
       </div>
     </div>
   </nav>

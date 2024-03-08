@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\peminjam;
 use Illuminate\Http\Request;
 use App\Models\buku;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PeminjamController extends Controller
@@ -14,8 +15,12 @@ class PeminjamController extends Controller
      */
     public function PeminjamDashboard()
     {
+        $buku = buku::with('kategori')
+            ->latest()
+            ->paginate(3);
         return view('peminjam.dashboard')->with([
-            'title' => 'Peminjam | Dashboard'
+            'title' => 'Peminjam | Dashboard',
+            'buku' => $buku,
         ]);
     }
 
@@ -23,12 +28,27 @@ class PeminjamController extends Controller
     {
         $buku = buku::with('kategori')
             ->latest()
-            ->paginate(10);
+            ->paginate(100);
         return view('peminjam.buku')->with([
             'buku' => $buku,
-            'title' => 'Peminjam | Dashboard',
+            'title' => 'Peminjam | Buku',
         ]);
-        
+
+    }
+
+    public function cart()
+    {
+        $buku = buku::with('kategori')
+            ->whereHas('peminjaman', function ($query) {
+                $query->where('id_user', Auth::id())
+                    ->where('actual_tgl_pengembalian', null);
+            })
+            ->latest()
+            ->paginate(10);
+        return view('peminjam.cart')->with([
+            'title' => 'Peminjam | Cart',
+            'buku' => $buku,
+        ]);
     }
 
     /**
@@ -36,7 +56,7 @@ class PeminjamController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**

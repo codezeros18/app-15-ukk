@@ -48,7 +48,7 @@
                             <div class="mb-3">
                                 <label for="kategori">Kategori</label>
                                 <select name="id_kategori" id="kategori" class="form-control">
-                                    <option disabled selected>Kategori</option>
+                                    <option disabled selected>Pilih Kategori</option>
                                     @foreach ($kategori as $item)
                                         <option value="{{ $item->id }}">{{ $item->kategori }}</option>
                                     @endforeach
@@ -60,13 +60,13 @@
                                     aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Stok</label>
+                                <label for="exampleInputEmail1" class="form-label">Stok <span class="text-muted ms-2" style="font-size: 12px">in stock / not avaible</span></label>
                                 <input type="number" class="form-control" id="exampleInputEmail1" name="stok"
                                     aria-describedby="emailHelp">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark">Create</button>
-                  </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Create</button>
             </form>
         </div>
     </div>

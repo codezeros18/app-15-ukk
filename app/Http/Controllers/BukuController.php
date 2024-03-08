@@ -71,7 +71,9 @@ class BukuController extends Controller
     public function show(string $id):View
     {
         $buku = buku::findOrFail($id);
-        return view('buku.detail',compact('buku'));
+        return view('buku.detail',compact('buku'))->with([
+            'title' => 'Buku | Detail Buku',
+        ]);
     }
 
     public function detail(string $id):View
@@ -93,7 +95,7 @@ class BukuController extends Controller
         // ]);
         $kategori = kategori::orderBy('kategori')
              ->get();
-        
+
         // dd("est");
         // dd("test");
         $buku = buku::with('kategori')
@@ -109,7 +111,7 @@ class BukuController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-    {   
+    {
         // dd($request);
         $buku = $request->validate([
             'judul' => 'required',
@@ -127,7 +129,7 @@ class BukuController extends Controller
 
             $image = $request ->file('gambar');
             $namaGambar= $request -> judul . '.' . $image ->extension();
-            
+
             Storage::delete(public_path('img/buku'.$buku->gambar));
             $image-> move(public_path('img/buku'), $namaGambar);
             $buku['gambar'] =$namaGambar;

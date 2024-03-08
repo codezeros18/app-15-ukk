@@ -42,20 +42,20 @@
                       <td>{{ $item->kategori->kategori }}</td>
                       <td>
                         <div class="d-flex">
-                          <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-dark me-2">Edit</a>
+                          {{-- <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-dark me-2">Edit</a> --}}
                           <a href="{{ route('buku.show', $item->id) }}" class="btn btn-dark me-2">Detail</a>
                           <form action="{{ route('buku.destroy', $item->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-dark">Hapus</button>
-                          </form> 
+                          </form>
                         </div>
-                          
-                          
+
+
                       </td>
                     </tr>
                     @endforeach
-                  
+
                   </tbody>
                 </table>
               </div>

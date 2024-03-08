@@ -7,19 +7,13 @@
             <div class="col-sm-6">
               <h1>Data Akun</h1>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('buku/dashboard') }}">Profile</a></li>
-                <li class="breadcrumb-item active">Data Akun</li>
-              </ol>
-            </div>
           </div>
         </div><!-- /.container-fluid -->
     </section>
     <section class="content mt-4">
       <div class="container-fluid">
         <div class="text-end">
-            <a href="{{ url('profile/create') }}" class="btn btn-sm text-white bg-black mt-4 mb-4" style="border-radius: 0" type="button"><i class="bi bi-plus"></i></a>
+            <a href="{{ url('akun/create') }}" class="btn btn-sm text-white bg-black mt-4 mb-4" style="border-radius: 0" type="button"><i class="bi bi-plus"></i></a>
         </div>
         <div class="row">
           <div class="col-12">
@@ -32,22 +26,29 @@
                     <th>#</th>
                     <th>Nama</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>Role</th>
                     <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Trident</td>
-                    <td>Sword</td>
-                    <td>Win 95+</td>
-                    <td>Sayangku</td>
-                    <td>
-                        <button type="submit" class="btn btn-dark">Hapus</button>
-                    </td>
-                  </tr>
+                    @foreach ($user as $item)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->email}}</td>
+                        <td>{{ $item->role}}</td>
+                        <td>
+                          <div class="d-flex">
+                            <a href="{{ route('akun.edit', $item->id) }}" class="btn btn-dark me-2">Edit</a>
+                            <form action="{{ route('akun.destroy', $item->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-dark">Hapus</button>
+                            </form>
+                          </div>
+                        </td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
